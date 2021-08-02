@@ -1,25 +1,40 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo">
-    <h1 class="my-5 bg-dark text-light p-3 rounded d-flex align-items-center">
-      <span class="mx-2 text-white">Vue 3 Starter</span>
-    </h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h2>Cars</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h2>Houses</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h2>Jobs</h2>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { onMounted } from 'vue'
+import { carsService } from '../services/CarsService'
+import { housesService } from '../services/HousesService'
+import { jobsService } from '../services/JobsService'
 export default {
-  name: 'Home'
+  name: 'Home',
+  setup() {
+    onMounted(() => {
+      carsService.getAll()
+      housesService.getAll()
+      jobsService.getAll()
+    })
+    return {}
+  }
 }
 </script>
 
 <style scoped lang="scss">
-.home{
-  text-align: center;
-  user-select: none;
-  > img{
-    height: 200px;
-    width: 200px;
-  }
-}
 </style>
