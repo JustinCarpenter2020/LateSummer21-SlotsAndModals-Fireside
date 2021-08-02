@@ -1,9 +1,8 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <h2>Cars</h2>
-      </div>
+    <h2>Cars</h2>
+    <div class="row my-4 scroll">
+      <CarComponent v-for="c in cars" :key="c.id" :car-prop="c" />
     </div>
     <div class="row">
       <div class="col-12">
@@ -19,10 +18,11 @@
 </template>
 
 <script>
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { carsService } from '../services/CarsService'
 import { housesService } from '../services/HousesService'
 import { jobsService } from '../services/JobsService'
+import { AppState } from '../AppState'
 export default {
   name: 'Home',
   setup() {
@@ -31,10 +31,17 @@ export default {
       housesService.getAll()
       jobsService.getAll()
     })
-    return {}
+    return {
+      cars: computed(() => AppState.cars)
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
+.scroll{
+  overflow-x: scroll;
+  white-space: nowrap;
+  height: 400px;
+}
 </style>
