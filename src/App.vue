@@ -5,6 +5,7 @@
   <main>
     <router-view />
     <CreationModal />
+    <CarModal />
   </main>
   <footer>
     <div class="bg-dark text-light text-center p-4">

@@ -1,7 +1,9 @@
 <template>
   <div class="container-fluid">
-    <h2>Cars</h2>
-    <div class="row my-4 scroll">
+    <h2 class="mt-4">
+      Cars
+    </h2>
+    <div class="row my-4">
       <CarComponent v-for="c in cars" :key="c.id" :car-prop="c" />
     </div>
     <div class="row">
@@ -39,9 +41,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.scroll{
-  overflow-x: scroll;
-  white-space: nowrap;
-  height: 400px;
-}
 </style>

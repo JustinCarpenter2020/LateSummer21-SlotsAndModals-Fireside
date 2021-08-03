@@ -1,28 +1,50 @@
 <template>
-  <div class="col-4">
+  <div class="col-md-4 my-4">
     <div class="card">
-      <img class="card-img-top" :src="carProp.imgUrl" alt="">
       <div class="card-body">
-        <h4 class="card-title">
-          {{ carProp.make }} | {{ carProp.model }}
-        </h4>
-        <p class="card-text">
-          Text
-        </p>
+        <div class="row">
+          <div class="col-8">
+            <img class="img-fluid imgs" :src="carProp.imgUrl" alt="">
+          </div>
+          <div class="col-4">
+            <h5 class="card-title">
+              {{ carProp.make }} {{ carProp.model }}
+            </h5>
+            <p>${{ carProp.price }}</p>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12 text-right">
+            <button class="btn btn-info" @click="toggle" data-toggle="modal" data-target="#carModal">
+              Inspect
+            </button>
+            <button class="btn btn-outline-danger ml-2">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { AppState } from '../AppState'
 export default {
   props: { carProp: { type: Object, requried: true } },
-  setup() {
-    return {}
+  setup(props) {
+    return {
+      toggle() {
+        AppState.activeCar = props.carProp
+      }
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-
+.imgs{
+  height: 150px;
+  width: 400px;
+}
 </style>
