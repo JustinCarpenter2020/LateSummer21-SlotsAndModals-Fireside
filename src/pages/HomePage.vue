@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="hero">
+    <div class="hero mt-4">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -47,13 +47,17 @@
         </a>
       </div>
     </div>
-    <h2 class="mt-4">
-      Cars
-    </h2>
+    <div class="row mt-4">
+      <div class="col-12 text-center">
+        <h2 class="mt-4 font">
+          Cars
+        </h2>
+      </div>
+    </div>
     <div class="row my-4">
       <CarComponent v-for="c in cars" :key="c.id" :car-prop="c" />
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-12">
         <h2>Houses</h2>
       </div>
@@ -62,7 +66,7 @@
       <div class="col-12">
         <h2>Jobs</h2>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -101,5 +105,9 @@ export default {
 
 .text{
    text-shadow: 2px 2px black;
+}
+
+.font{
+  font-family: 'Heebo', sans-serif;
 }
 </style>
