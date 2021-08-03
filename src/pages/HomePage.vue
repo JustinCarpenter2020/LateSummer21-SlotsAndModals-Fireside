@@ -57,16 +57,6 @@
     <div class="row my-4">
       <CarComponent v-for="c in cars" :key="c.id" :car-prop="c" />
     </div>
-    <!-- <div class="row">
-      <div class="col-12">
-        <h2>Houses</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <h2>Jobs</h2>
-      </div>
-    </div> -->
   </div>
 </template>
 

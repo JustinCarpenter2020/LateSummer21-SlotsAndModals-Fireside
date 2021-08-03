@@ -15,7 +15,7 @@
         </div>
         <div class="row mt-4">
           <div class="col-12 text-right">
-            <button class="btn btn-info" @click="toggle" data-toggle="modal" data-target="#carModal">
+            <button class="btn btn-info">
               Inspect
             </button>
             <button class="btn btn-outline-danger ml-2">
@@ -29,14 +29,10 @@
 </template>
 
 <script>
-import { AppState } from '../AppState'
 export default {
   props: { carProp: { type: Object, required: true } },
   setup(props) {
     return {
-      toggle() {
-        AppState.activeCar = props.carProp
-      }
     }
   }
 }
