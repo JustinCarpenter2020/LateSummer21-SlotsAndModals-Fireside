@@ -31,7 +31,7 @@
 <script>
 import { AppState } from '../AppState'
 export default {
-  props: { carProp: { type: Object, requried: true } },
+  props: { carProp: { type: Object, required: true } },
   setup(props) {
     return {
       toggle() {

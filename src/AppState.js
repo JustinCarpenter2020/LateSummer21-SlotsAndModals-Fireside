@@ -7,5 +7,6 @@ export const AppState = reactive({
   cars: [],
   jobs: [],
   houses: [],
-  activeCar: {}
+  activeCar: {},
+  newPost: {}
 })

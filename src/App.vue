@@ -4,7 +4,6 @@
   </header>
   <main>
     <router-view />
-    <CreationModal />
     <CarModal />
   </main>
   <footer>

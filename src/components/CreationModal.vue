@@ -1,7 +1,7 @@
 <template>
   <div class="component">
     <div class="modal fade"
-         id="creationModal"
+         :id="idProp"
          tabindex="-1"
          role="dialog"
          aria-labelledby="exampleModalLabel"
@@ -20,9 +20,14 @@
             </button>
           </div>
           <div class="modal-body">
-            <slot name="forms">
-              ...
-            </slot>
+            <form @submit.prevent="create()">
+              <slot name="forms">
+                ...
+              </slot>
+              <button type="submit">
+                Create
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -31,11 +36,22 @@
 </template>
 
 <script>
+import { reactive } from '@vue/reactivity'
+import { computed } from '@vue/runtime-core'
+import { AppState } from '../AppState'
+import { carsService } from '../services/CarsService'
+import { jobsService } from '../services/JobsService'
+import { housesService } from '../services/HousesService'
 export default {
-  setup() {
+  props: { idProp: { type: String, required: true } },
+  setup(props) {
+    const state = reactive({
+      newPost: computed(() => AppState.newPost)
+    })
     return {
-      async create(type, object) {
-
+      state,
+      async create() {
+        props.idProp === 'car' ? carsService.create(state.newPost) : props.idProp === 'job' ? jobsService.create(state.newPost) : housesService.create(state.newPost)
       }
     }
   }
